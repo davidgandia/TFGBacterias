@@ -1,0 +1,1 @@
+This folder should have all the videos that will be used in the project.
