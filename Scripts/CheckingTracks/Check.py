@@ -3,6 +3,15 @@ Created on Mon Oct 22 22:13:36 2018
 
 @author: Gali
 """
+"""
+Developmetn - Stop
+"""
+"""
+Este script esta orientado a ser usado con ImagJ. 
+El objetivo es automatizar el proceso de comprobación de la precison del tracking
+De momento no funciona.
+"""
+
 
 #@String (label = "PathForTheModel") modelPath
 
