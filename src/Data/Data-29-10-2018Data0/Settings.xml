@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrackMate version="3.8.0">
+  <Settings>
+    <ImageData filename="1-paralelo-1.tif" folder="..\..\Videos\" width="411" height="969" nslices="1" nframes="247" pixelwidth="0.22700001299381256" pixelheight="0.22700001299381256" voxeldepth="1.0" timeinterval="0.1333409696817398" />
+    <BasicSettings xstart="0" xend="410" ystart="0" yend="968" zstart="0" zend="0" tstart="0" tend="246" />
+    <DetectorSettings DETECTOR_NAME="DOG_DETECTOR" TARGET_CHANNEL="1" RADIUS="2.25" THRESHOLD="3.0" DO_MEDIAN_FILTERING="false" DO_SUBPIXEL_LOCALIZATION="true" />
+    <InitialSpotFilter feature="QUALITY" value="27.6" isabove="true" />
+    <SpotFilterCollection />
+    <TrackerSettings TRACKER_NAME="KALMAN_TRACKER" LINKING_MAX_DISTANCE="8.0" KALMAN_SEARCH_RADIUS="2.0" MAX_FRAME_GAP="2" />
+    <TrackFilterCollection />
+    <AnalyzerCollection>
+      <SpotAnalyzers />
+      <EdgeAnalyzers />
+      <TrackAnalyzers>
+        <Analyzer key="Track duration" />
+        <Analyzer key="Velocity" />
+        <Analyzer key="Branching analyzer" />
+        <Analyzer key="Track index" />
+        <Analyzer key="Track location" />
+        <Analyzer key="TRACK_SPOT_QUALITY" />
+      </TrackAnalyzers>
+    </AnalyzerCollection>
+  </Settings>
+</TrackMate>
