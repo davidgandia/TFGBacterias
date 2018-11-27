@@ -9,9 +9,10 @@ import matplotlib.pyplot as plt
 from astropy.stats import knuth_bin_width
 import pandas as pd
 import random as rd
+import time 
 #This is an example of hoe to plot the data obtained in the tracking < >
 
-
+np.random.seed(1)#siempre el mismo randompara que sea repetible
 def plotHistWithKnuth(data,axes):
     #Obtain the bins using an specific method
     dx, bins = knuth_bin_width(data, return_bins=True)
@@ -23,7 +24,7 @@ def plotHistWithKnuth(data,axes):
     axes.set_xlabel(data.name)
     axes.grid()
     #Change axes name (It can be used Tex language)
-    axes.set_ylabel('Number of bacteria')
+    axes.set_ylabel('Number of tracks normalized')
     
     
     
@@ -65,8 +66,8 @@ dfMax = df[df["TRACK_MEAN_SPEED(VELOCITY)"]>10]
 #     fig,ax = plt.subplots(1,2)
 #     plotHistWithKnuth(dfMin[k],ax[0])
 #     plotHistWithKnuth(dfMax[k],ax[1])
+# 
 # =============================================================================
-
 ############
 #Selecciona un numero aleatorio de Track ID y guardalos es un cvs Para poder
 # analizar los tracks en cuestion. Se guardaran dos archivos, uno con v menor a 10 y
@@ -78,12 +79,16 @@ dfMax = df[df["TRACK_MEAN_SPEED(VELOCITY)"]>10]
 nTrMayor = dfMax.iloc[:,1].count()
 nTrMenor = dfMin.iloc[:,1].count()
 
-randomTrackIDProviderMayor = np.random.permutation(np.arange(nTrMayor))[:100].sort()
-randomTrackIDProviderMenor = np.random.permutation(np.arange(nTrMenor))[:100].sort()
+randomTrackIDProviderMayor = (np.random.permutation(np.arange(nTrMayor))[:100])
+randomTrackIDProviderMayor.sort()
+randomTrackIDProviderMenor = (np.random.permutation(np.arange(nTrMenor))[:100])
+randomTrackIDProviderMenor.sort()
 
-TrackIDMayor = dfMax.index[randomTrackIDProviderMayor]
-TrackIDMenor = dfMin.index[randomTrackIDProviderMenor]
-    
-    
-    
-    
+trackIDMayor = dfMax.index[randomTrackIDProviderMayor] #El cero es para que coja bien el array
+trackIDMenor = dfMin.index[randomTrackIDProviderMenor]
+
+#Pasamos a una dataframe para guardarlo
+dfTracksToAnalize = pd.DataFrame({"TRACK_SPEED_GT_10MUS" : trackIDMayor})
+dfTracksToAnalize["TRACK_SPEED_LT_10MUS"] = trackIDMenor
+
+dfTracksToAnalize.to_csv(r".\CheckTracks"+ time.strftime("%d-%m-%y") +".csv",sep = "\t")
