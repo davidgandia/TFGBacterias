@@ -33,7 +33,6 @@ def callTracking(headLess,imgPath,dataOutPath, kalmanSearchRadius,linkingMaxDist
                                                     ,str(linkingMaxDistance)
                                                     )
                 )    
-    print(args)
     call(args)
 
     return None
@@ -71,8 +70,7 @@ def _example():
     linkingMaxDistance = 8.0
     callTracking(headLess,imgPath,dataOutPath,kalmanSearchRadius,linkingMaxDistance)
     """
-    Todavia falta por comprobar con la aplicación directamente pero 
-    el numero de Spots detectados para la imagen seleccionada debería ser Spots = 28846
+    El numero de Spots detectados para la imagen seleccionada debería ser Spots = 28846
     y el numero de Tracks = 2959
     """
 if __name__ == "__main__":

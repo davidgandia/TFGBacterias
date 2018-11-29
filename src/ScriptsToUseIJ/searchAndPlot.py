@@ -10,7 +10,8 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-#El objetivo es observar como varía el número de puntos en función del kalmanRadius
+#El objetivo es observar como varía el número de puntos en función del kalmanRadius. En concreto, ver cuantos tracks con solo dos puntos aparecen
+
 
 headLess = True
 dataOutPath = '..\Data\Data-29-10-2018'                     #poner la carpeta, TIENE QUE ESTAR CREADA
