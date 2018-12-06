@@ -79,5 +79,9 @@ if __name__ == "__main__":
     dataPath = ".\Data\TrackFeatures.txt" #se ha usado uno provisional. El mismo con el que se ha hecho la comprovación de la precisión del tracking
     df = openAndFilterTracks(dataPath)
     fDA = computeFractionDeadAlive(df)
-    plt.plot(range(fDA.size),fDA,np.ones(fDA.size)*fDA.mean())
-    print("\n fDA = {} \n error = {}".format(fDA.mean(),fDA.std())) #std o std/sqrt(n)
+    fig,ax = plt.subplots()
+    ax.plot(range(fDA.size),fDA,np.ones(fDA.size)*fDA.mean())
+    ax.legend(["f(t)",r"$\overline{f(t)}$"])
+    ax.set_xlabel("Frame")
+    ax.set_ylabel("Fractión of dead bacteria")
+    print("\n fDA = {} \n error = {}".format(fDA.mean(),fDA.std()/math.sqrt(fDA.size))) #std o std/sqrt(n)
